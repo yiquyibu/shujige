@@ -1,0 +1,33 @@
+# Local article files & private content
+修复版网页/
+/docs/*.private.*
+
+# Generated index & database files
+**/index/*.sqlite3
+**/index/*.sqlite3-*
+**/index/*.npy
+**/index/manifest.json
+**/index/build_*
+
+# Obsidian workspace & caches
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# Python cache & temp
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+
+# Scratch/temp
+scratch/
+tmp/
+*.tmp
+.DS_Store
+Thumbs.db
