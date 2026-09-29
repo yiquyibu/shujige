@@ -356,11 +356,14 @@ class SearchEngine:
         self.con.row_factory = sqlite3.Row
         self.vectors = np.load(vec_file, mmap_mode="r")
 
-        # 检查 manifest 读取模型
+        # 检查 manifest 读取 corpus 与 model
         manifest_file = self.index_dir / "manifest.json"
         if manifest_file.is_file():
             try:
                 manifest_data = json.loads(manifest_file.read_text(encoding="utf-8"))
+                saved_corpus = manifest_data.get("corpus")
+                if saved_corpus and not corpus_dir and Path(saved_corpus).is_dir():
+                    self.corpus_dir = Path(saved_corpus)
                 saved_model = manifest_data.get("model")
                 if saved_model and not model_name:
                     model_name = saved_model
